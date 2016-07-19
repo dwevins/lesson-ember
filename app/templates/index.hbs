@@ -1,7 +1,7 @@
 <div class="image-grid">
-  <div class="image-grid__item">
-    {{#each model.data as |image|}}
-      {{if (not image.is_album)}}
+  {{#each model.data as |image|}}
+    <div class="image-grid__item">
+      {{#unless image.is_album}}
         <figure class="post">
           <div class="post__frame">
             <img src="{{ image.img }}" alt="">
@@ -9,9 +9,16 @@
           <figcaption>a title goes here</figcaption>
           <p>{{ image.title }}</p>
         </figure>
-      {{/if}}
-    {{/each}}
-  </div>
+        {{else}}
+          <figure class="post">
+            <div class="post-frame">
+              <p>no image found</p>
+            </div>
+            <p>{{image.title}}</p>
+          </figure>
+      {{/unless}}
+    </div>
+  {{/each}}
 </div>
 
 
