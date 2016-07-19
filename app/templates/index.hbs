@@ -1,12 +1,14 @@
 <div class="image-grid">
   <div class="image-grid__item">
-    <figure class="post">
-      <div class="post__frame">
-        <img src="{{ model.img }}" alt="">
-      </div>
-      <figcaption>a title goes here</figcaption>
-      <p>{{ model.title }}</p>
-    </figure>
+    {{#each model as |image|}}
+      <figure class="post">
+        <div class="post__frame">
+          <img src="{{ image.img }}" alt="">
+        </div>
+        <figcaption>a title goes here</figcaption>
+        <p>{{ image.title }}</p>
+      </figure>
+    {{/each}}
   </div>
 </div>
 
