@@ -1,13 +1,15 @@
 <div class="image-grid">
   <div class="image-grid__item">
-    {{#each model as |image|}}
-      <figure class="post">
-        <div class="post__frame">
-          <img src="{{ image.img }}" alt="">
-        </div>
-        <figcaption>a title goes here</figcaption>
-        <p>{{ image.title }}</p>
-      </figure>
+    {{#each model.data as |image|}}
+      {{if (not image.is_album)}}
+        <figure class="post">
+          <div class="post__frame">
+            <img src="{{ image.img }}" alt="">
+          </div>
+          <figcaption>a title goes here</figcaption>
+          <p>{{ image.title }}</p>
+        </figure>
+      {{/if}}
     {{/each}}
   </div>
 </div>

@@ -1,16 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  // 'https://api.imgur.com/3/gallery/hot/viral/0.json'
   model() {
-    return [
-      {
-        img: 'http://placecage.com/300/300',
-        title: 'I am an object'
-      },
-      {
-        img: 'http://stevensegallery.com/400/400',
-        title: 'segal'
-      },
-    ]
+    return fetch('https://api.imgur.com/3/gallery/hot/viral/0.json')
+      .then((res) => res.json);
   }
 });
